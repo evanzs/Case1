@@ -1,20 +1,20 @@
 
- <form>
+ <form class= "form-control" [formGroup] = "formulario">
    <div class="form-row">
      <div class="form-group col-md-6">
       <label for="inputPassword4">Nome</label>
-      <input type="text" class="form-control" id="inputPassword4" placeholder="nome">
+      <input type="text" class="form-control" formControlName ="inputNome" placeholder="nome">
     </div>
     <div class="form-group col-md-6">
       <label for="inputEmail4">Email</label>
-      <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+      <input type="email" class="form-control" formControlName="inputEmail" placeholder="Email">
     </div>
     <div class="form-row">
 
 
     <div class="col-7">
       <label for="Cidade">Cidade</label>
-      <input type="text" class="form-control" placeholder="Cidade">
+      <input type="text" class="form-control" formControlName = "inputCidade"placeholder="Cidade">
     </div>
 
     <div class="col">
@@ -32,4 +32,15 @@
   </div>
 </form>
 
+<form  class="form-control" [formGroup] = "formulario" (ngSubmit) ="onSubmit()" >
+  <div class="form-row">
+    
+      <label>Usuario</label>
+      <input type="text" class="form-control" formControlName = "inputUsuario"placeholder="Usuario">
 
+      <label>Senha</label>
+      <input type="password" class="form-control" formControlName = "inputSenha"placeholder="Senha">
+      <button type ="btn-submit" class="btn btn-primary">Submit</button>
+     
+  </div>
+</form>
