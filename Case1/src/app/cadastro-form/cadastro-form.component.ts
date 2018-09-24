@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormGroup, FormBuilder} from '@angular/forms'
+import {FormGroup, FormBuilder, Validators} from '@angular/forms'
 @Component({
   selector: 'cadastro-form',
   templateUrl: './cadastro-form.component.html',
@@ -16,13 +16,29 @@ export class CadastroFormComponent implements OnInit{
 
     this.formulario = this.formBuilder.group({
 
-      inputNome: ["Evandro"],
-      inputEmail: ["Evandro"]
+      inputNome: [null, Validators.required],
+      inputEmail: [null, [Validators.required,Validators.email]],
+      inputCidade: [null,Validators.required],
+      inputUsuario: [null,Validators.required],
+      inputSenha: [null,Validators.required]
 
     });
     
     }
-   
+    // verifica se o campo foi tocado ou esta valido
+    verificaValidTouched (campo)
+    {
+      return this.formulario.get(campo).valid && this.formulario.get(campo).touched
+    }
+
+    aplicaCssErro (campo)
+    {
+      return {
+        'has-error': this.verificaValidTouched (campo),
+        'has-feedback': this.verificaValidTouched(campo)
+      }
+      
+    }
     
     onSubmit(){
       console.log (this.formulario.value);

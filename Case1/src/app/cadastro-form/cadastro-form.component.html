@@ -1,6 +1,6 @@
 
  <form class= "form-control" [formGroup] = "formulario">
-   <div class="form-row">
+   <div class="form-row" [ngClass]="aplicaCssErro('nome')">
      <div class="form-group col-md-6">
       <label for="inputPassword4">Nome</label>
       <input type="text" class="form-control" formControlName ="inputNome" placeholder="nome">
@@ -14,7 +14,8 @@
 
     <div class="col-7">
       <label for="Cidade">Cidade</label>
-      <input type="text" class="form-control" formControlName = "inputCidade"placeholder="Cidade">
+      <input type="text" class="form-control" formControlName = "inputCidade" 
+      , placeholder="Cidade">
     </div>
 
     <div class="col">
