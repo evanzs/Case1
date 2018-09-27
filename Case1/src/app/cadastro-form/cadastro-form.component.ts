@@ -31,7 +31,7 @@ export class CadastroFormComponent implements OnInit{
       return this.formulario.get(campo).valid && this.formulario.get(campo).touched
     }
 
-    aplicaCssErro (campo)
+    AplicaCssErro (campo)
     {
       return {
         'has-error': this.verificaValidTouched (campo),

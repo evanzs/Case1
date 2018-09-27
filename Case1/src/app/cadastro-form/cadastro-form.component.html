@@ -1,5 +1,5 @@
 
- <form class= "form-control" [formGroup]="formulario" >
+ <form class= "form-control" [formGroup]="formulario" (ngClass)= "AplicaCssErro()" >
    <!-- Dados Cadastrais -->
   <div class="form-row" >
      <div class="form-group col-md-6">
@@ -36,19 +36,19 @@
 
 <!--  -->
   <div class="form-row">
-    <div class="col-6">
+    <div class="form-group col-md-6">
       <label>Usuario</label>
       <input type="text" class="form-control" formControlName = "inputUsuario"placeholder="Usuario">
     </div>
       
-    <div class="col-6">
+    <div class="form-group col-md-6">
       <label>Senha</label>
       <input type="password" class="form-control" formControlName = "inputSenha"placeholder="Senha">
     </div> 
   </div>
 
   <div class="form-row">
-    <div class="col-12">
+    <div class="form-group col-md-12">
       <!-- botão desabilitado enquanto n tiver valido o formulario -->
      <button  class="btn btn-primary" [disabled] = "!formulario.valid">Submit</button>
     </div>   
