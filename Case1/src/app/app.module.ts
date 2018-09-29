@@ -5,10 +5,13 @@ import { AppComponent } from './app.component';
 import {CadastroFormComponent} from './cadastro-form/cadastro-form.component';
 import { CadastroFormModule } from './cadastro-form/cadastro-form.module';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [
     
     AppComponent,
+    
+    
   
     
   ],

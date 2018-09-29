@@ -1,40 +1,68 @@
 
- <form class= "form-control" [formGroup]="formulario" (ngClass)= "AplicaCssErro()" >
+ <form class= "form-control" [formGroup]="formulario" (ngSubmit)="onSubmit()">
    <!-- Dados Cadastrais -->
   <div class="form-row" >
-     <div class="form-group col-md-6">
-      <label for="inputPassword4">Nome</label>
-      <input type="text" class="form-control" formControlName ="inputNome" placeholder="nome">
-    </div>
-    <div class="form-group col-md-6">
-      <label for="inputEmail4">Email</label>
-      <input type="email" class="form-control" formControlName="inputEmail" placeholder="Email">
-    </div>
+        <div class="form-group col-md-6" [ngClass]="AplicaCssErro(inputNome)">
+          <label for="inputPassword4">Nome</label>
+          <input type="text" class="form-control" formControlName="inputNome" id="nome" name="nome" placeholder="nome">
+        <form-control [mostrarErro]="verificaValidTouched(nome)" msgErro ="Nome Obrigatório."></form-control> 
+        
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputEmail4">Email</label>
+          <input type="email" class="form-control" formControlName="inputEmail" placeholder="Email">
+        </div>
   </div>
-    <div class="form-row">
-    <!-- Cidade -->
-      <div class=" form-group col-md-4">
-        <label for="Cidade">Cidade</label>
-        <input type="text" class="form-control" formControlName = "inputCidade"
-         placeholder="Cidade">
-      </div>
-    <div class="form-group col-md-4">
-      <label>Estado</label>
-      <select id="inputState" class="form-control">
-        <option selected>Choose...</option>
-        <option>...</option>
-      </select>
-    </div>
-    <div class="form-group col-md-4">
-      <label>CEP</label>
-      <input type="text" class="form-control" placeholder="Zip">
-    </div>
-  </div>
+   <!-- Dados Cadastrais -->
+  <!-- Dados de Endereço -->
+    <div formGroupName="endereco">   
+      <div class="form-row">
+          <div class="form-group col-md-4">
+              <label>Estado</label>
+              <select id="inputState" class="form-control">
+                <option selected>Choose...</option>
+                <option>...</option>
+              </select>
+            </div>
+            <div class=" form-group col-md-4">
+              <label for="Cidade">Cidade</label>
+              <input type="text" class="form-control" formControlName = "inputCidade"
+               placeholder="Cidade">
+            </div>
+            <div class="form-group col-md-4">
+              <label>CEP</label>
+              <input type="text" class="form-control" placeholder="Zip">
+            </div>
+      </div>    
+      <div class="form-row">
+          <div class=" form-group col-md-4">
+              <label for="Cidade">Rua</label>
+              <input type="text" class="form-control" formControlName = "inputRua"
+               placeholder="Rua">
+            </div>
+            <div class=" form-group col-md-4">
+                <label for="bairro">Bairro</label>
+                <input type="text" class="form-control" formControlName = "inputBairro"
+                 placeholder="Bairro">
+              </div>
+              <div class=" form-group col-md-4">
+                  <label for="Complemento">Complemento</label>
+                  <input type="text" class="form-control" formControlName = "inputComple"
+                   placeholder="Complemento">
+                </div>
 
+
+
+      </div>
+
+
+    
+  </div>
+<!-- Dados de Endereço -->
  
 
 
-<!--  -->
+<!--Dados do Usuario-->
   <div class="form-row">
     <div class="form-group col-md-6">
       <label>Usuario</label>
@@ -50,7 +78,8 @@
   <div class="form-row">
     <div class="form-group col-md-12">
       <!-- botão desabilitado enquanto n tiver valido o formulario -->
-     <button  class="btn btn-primary" [disabled] = "!formulario.valid">Submit</button>
+     <button type="submit"  class="btn btn-primary" >Submit</button>
     </div>   
   </div>
+  <!--Dados do Usuario-->
 </form>
