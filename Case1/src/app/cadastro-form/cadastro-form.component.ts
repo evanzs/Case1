@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Http } from '@angular/http';
 import {FormGroup, FormBuilder, Validators} from '@angular/forms';
-import { stringify } from '@angular/core/src/util';
+import { error } from 'protractor';
+
 //import { Observable } from 'rxjs/Rx';
 //import 'rxjs/add/operator/map';
 
@@ -17,7 +18,7 @@ export class CadastroFormComponent implements OnInit
   formulario: FormGroup;
   
   constructor( 
-              private formBuilder:FormBuilder,
+               private formBuilder:FormBuilder,
               private http: Http // variavel http para post no servidor
     ) {}
 
@@ -28,7 +29,7 @@ export class CadastroFormComponent implements OnInit
             this.formulario = this.formBuilder.group
             ({
 
-                  inputNome: [null, Validators.required],
+                  nome:[null, Validators.required],
                   inputEmail: [null, [Validators.required,Validators.email]],
                   inputUsuario: [null,Validators.required],
                   inputSenha: [null,Validators.required],
@@ -42,35 +43,30 @@ export class CadastroFormComponent implements OnInit
                             inputCep:    [null,Validators.required],
                             inputBairro: [null,Validators],
                             inputComple: [null,Validators]
-                  })    
+                  }),
 
             });
   }
     // verifica se o campo foi tocado ou esta valido
-    verificaValidTouched(campo)
+    verificaValidTouched(campo: string)
     {
-      return this.formulario.get(campo).valid && this.formulario.get(campo).touched;
+      return !this.formulario.get(campo).valid && this.formulario.get(campo).touched;
+
     }
 
-    AplicaCssErro (campo)
-    {
-      return 
-      {
-        'has-error': this.verificaValidTouched (campo);
-        'has-feedback': this.verificaValidTouched(campo);
-      }
-      
+    aplicaCssErro(campo: string) {
+      return {
+        'form is-invalid': this.verificaValidTouched(campo),
+        
+      };
     }
+     
     
     onSubmit()
     {
       console.log(this.formulario.value);
 
-      //tentar arrumar o post depois!!
-      //lançado no servidor
-      //this.http.post('https://httpbin.org/post',JSON.stringify(this.formulario.value))
-      // .map(res=>res.json);
-      //.subscribe(dados => console.log(dados));
+     
 
     }
 

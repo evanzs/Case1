@@ -9,12 +9,14 @@ import { HttpModule } from '@angular/http';
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    HttpModule
+    HttpModule,
+    
   ],
   declarations: [
 
     CadastroFormComponent,
     FormControlComponent
+    
   ],
 
   exports:[CadastroFormComponent]

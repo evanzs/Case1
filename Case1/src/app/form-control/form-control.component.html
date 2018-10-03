@@ -1,9 +1,7 @@
  
-<div *ngIf="mostraErro">
+<div *ngIf="mostrarErro">
   <span class="glyphicon glyphicon-remove form-control-feedback" ></span>
   <span class="sr-only">(error)</span>
-  <div ngIf="!nome.valid &&nome.touched " class="alert alert-danger" role="alert">{{msgErro}}</div>
-
-
+  <div class="alert alert-danger" role="alert">{{msgErro}}</div>
 </div>
   
