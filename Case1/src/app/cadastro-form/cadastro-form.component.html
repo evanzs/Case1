@@ -2,13 +2,10 @@
  <form class= "form-control" [formGroup]="formulario" (ngSubmit)="onSubmit()">
    <!-- Dados Cadastrais -->
   <div class="form-row"  >
-        <div class="form-group col-md-6"  >
-        
-              <label for="inputNome">Nome</label>
-         
-          
-          <input type="text" class="form-control" [ngClass]="aplicaCssErro('nome')" id="nome" formControlName="nome" name="nome"  placeholder="nome" >
-          <form-control [mostrarErro]="verificaValidTouched('nome')"  msgErro ="Nome obrigatório."></form-control> 
+        <div class="form-group col-md-6"  >        
+          <label for="inputNome">Nome</label>         
+          <input type="text" class="form-control" [ngClass]="aplicaCssErro('inputNome')" id="nome" formControlName="inputNome" name="nome"  placeholder="nome" >
+          <form-control [mostrarErro]="verificaValidTouched('inputNome')"  msgErro ="Nome é obrigatório."></form-control> 
         </div>
         <div class="form-group col-md-6" >
           <label for="inputEmail">Email</label>
@@ -17,7 +14,7 @@
         </div>
   </div>
  
-  <!-- Dados de Endereço -->
+   <!-- Dados de Endereço -->
     <div formGroupName="endereco">   
       <div class="form-row">
           <div class="form-group col-md-4">
@@ -26,19 +23,22 @@
                 <option selected>Choose...</option>
                 <option>...</option>
               </select>
-            </div>
+          </div>
+
             <div class=" form-group col-md-4">
               <label for="Cidade">Cidade</label>
               <input type="text" class="form-control" [ngClass]="aplicaCssErro('endereco.inputCidade')" formControlName="inputCidade"
                placeholder="Cidade">
                <form-control [mostrarErro]="verificaValidTouched('endereco.inputCidade')"  msgErro ="Cidade é obrigatório."></form-control> 
             </div>
+
             <div class="form-group col-md-4">
               <label>CEP</label>
               <input type="text" class="form-control" formControlName="inputCep" [ngClass]="aplicaCssErro('endereco.inputCep')" placeholder="Zip">
               <form-control [mostrarErro]="verificaValidTouched('endereco.inputCep')"  msgErro ="CEP é obrigatório."></form-control> 
             </div>
-      </div>    
+       </div>    
+     
       <div class="form-row">
           <div class=" form-group col-md-4">
               <label for="Cidade">Rua</label>
@@ -51,20 +51,14 @@
                 <input type="text" class="form-control" formControlName="inputBairro"
                  placeholder="Bairro">
                  
-              </div>
-              <div class=" form-group col-md-4">
-                  <label for="Complemento">Complemento</label>
-                  <input type="text" class="form-control" formControlName = "inputComple"
-                   placeholder="Complemento">
-                </div>
-
-
-
-      </div>
-
-
-    
-  </div>
+            </div>
+            <div class=" form-group col-md-4">
+                <label for="Complemento">Complemento</label>
+                <input type="text" class="form-control" formControlName = "inputComple"
+                 placeholder="Complemento">
+            </div>
+      </div>    
+    </div>
 <!-- Dados de Endereço -->
  
 

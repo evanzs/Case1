@@ -29,7 +29,7 @@ export class CadastroFormComponent implements OnInit
             this.formulario = this.formBuilder.group
             ({
 
-                  nome:[null, Validators.required],
+                  inputNome:[null, Validators.required],
                   inputEmail: [null, [Validators.required,Validators.email]],
                   inputUsuario: [null,Validators.required],
                   inputSenha: [null,Validators.required],
@@ -40,7 +40,7 @@ export class CadastroFormComponent implements OnInit
                             inputEstado: [null,Validators.required],
                             inputCidade: [null,Validators.required],
                             inputRua:    [null,Validators.required],        
-                            inputCep:    [null,Validators.required],
+                            inputCep:    [null,[Validators.required]],
                             inputBairro: [null,Validators],
                             inputComple: [null,Validators]
                   }),
